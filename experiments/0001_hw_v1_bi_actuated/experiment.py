@@ -30,6 +30,12 @@ Bi-actuated training (no SA wrapper). The trained checkpoint feeds v2/v3/v4
 (parameter variants) and v5/v6 (single-actuated fine-tunes).
 """
 
+
+# --- path fix: make core/ modules importable when run from this folder ---
+import sys as _sys, os as _os
+_sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', '..', 'core'))
+# --- end path fix ---
+
 import math
 import os
 import sys
@@ -40,9 +46,10 @@ import numpy as np
 import torch
 
 # ── Portable paths: resolve repo from script location ───────────────────────
-REPO_DIR = os.path.dirname(os.path.abspath(__file__))
-sys.path.insert(0, REPO_DIR)
-os.chdir(REPO_DIR)
+THIS_DIR = os.path.dirname(os.path.abspath(__file__))
+REPO_DIR = os.path.abspath(os.path.join(THIS_DIR, "..", ".."))
+sys.path.insert(0, os.path.join(REPO_DIR, "core"))
+os.chdir(THIS_DIR)
 
 import lin_net as network_module
 import mpc_controller as mpc_module

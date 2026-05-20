@@ -20,6 +20,12 @@ Tune BATCH_SIZE based on memory:
     B=128  aggressive;   needs ~3 GB VRAM at N=10, more at deeper horizons
 """
 
+
+# --- path fix: make core/ modules importable when run from this folder ---
+THIS_DIR = os.path.dirname(os.path.abspath(__file__))
+REPO_DIR = os.path.abspath(os.path.join(THIS_DIR, "..", ".."))
+sys.path.insert(0, os.path.join(REPO_DIR, "core"))
+os.chdir(THIS_DIR)
 import glob
 import math
 import os
