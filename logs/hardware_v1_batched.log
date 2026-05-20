@@ -1,0 +1,18 @@
+================================================================================
+ EXP: HARDWARE v1 BATCHED — train from scratch on MAB double pendulum
+ device:     cuda
+ BATCH_SIZE: 128
+ Physics:    m1=0.10548 m2=0.07620 l1=l2=0.05m r1=0.05 r2=0.03670
+             I1=4.617e-4 I2=2.370e-4 u_max=+/-0.15 Nm
+ Q_base:     [0.1, 0.0001, 0.1, 0.0001]  R_base: [1, 1]
+ Schedule:   META_EPOCHS=5  LR=0.001  hidden=128
+ Log:        C:\Users\kladi\Desktop\imp\logs\hardware_v1_batched.log
+================================================================================
+
+ Init: Q[q1] bot=1.447 mid=1.440 top=1.446
+       fe   bot=0.042 mid=0.041 top=0.038
+
+ Starting batched training from scratch ...
+
+  Meta    L_bot    L_top  Q@bot  Q@mid  Q@top  fe@bot  fe@top    f01   arr   post
+ ---------------------------------------------------------------------------------
